@@ -29,7 +29,7 @@ export default function Qrcode() {
                 setDisplayCode(true);
                 setCode(res.data.code)
                 setEndtime(res.data.end_time)
-                setQrcode(`https://attendencetracker.pages.dev/markAttendance/${ res.data.code }/${ res.data.end_time }`)
+                setQrcode(`http://localhost:3000/markAttendance/${ res.data.code }/${ res.data.end_time }`)
                 console.log(qrCode);
             }).catch(error => {
                 setError(error.message);
