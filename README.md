@@ -31,8 +31,7 @@ $ python manage.py runserver
 5. CSS
 
 ### Screen Shots
-![screencapture-att-tracker-pages-de![Screenshot (330)](https://user-images.githubusercontent.com/75828535/168455564-b47c1794-594e-4e51-846e-83ef07f9dbb4.png)
-v-2022-05-15-08_40_42](https://user-images.githubusercontent.com/75828535/168455554-f3ce975e-bf2e-49e9-9690-68ee6d3adf39.png)
+
 
 ![screencapture-att-![screencapture-att-tracker-pages-dev-profile-2022-05-15-08_41_57](https://user-images.githubusercontent.com/75828535/168455572-d1089730-32bd-4313-a228-5149edf8f14a.png)
 
