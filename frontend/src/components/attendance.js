@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { useCurrentUser } from '../hook/useCurrentUser';
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 
 export default function Attendance() {
-    const { isLoading, isAuthorized, username } = useCurrentUser();
     const [error, setError] = useState()
     const [success, setSuccess] = useState(false)
     const { code, end_time } = useParams()
     const [data, setData] = useState([])
+    const username = localStorage.getItem('username')
+    const isAuthorized = localStorage.getItem('isAuthorized')
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
         console.log(end_time)
         console.log(username)
-        axios.post(" https://attendancetraker7.herokuapp.com/api/markAttendance", { code: code, end_time: end_time, email: username })
+        axios.post("https://attendancetraker7.herokuapp.com/api/markAttendance", { code: code, end_time: end_time, email: username })
             .then(res => {
                 console.log(res.data);
                 setData(res.data);
@@ -75,7 +76,6 @@ export default function Attendance() {
                                 <h2 className="section-title">Attendance</h2>
                                 {/* <p className="mb-100">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br />Excepteur sint occaecat cupidatat non proident</p> */}
                             </div>
-                            {isLoading ? <div>Loading...</div> : null}
 
                             {isAuthorized ?
                                 <>

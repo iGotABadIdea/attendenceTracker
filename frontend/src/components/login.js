@@ -1,6 +1,22 @@
-import '@passageidentity/passage-auth';
 import { Link } from 'react-router-dom';
+import "@passageidentity/passage-elements/passage-auth";
+import { useEffect, useRef } from "react";
+
 export default function Login() {
+    const ref = useRef();
+
+    const beforeAuth = (email) => {
+        localStorage.setItem('username', email);
+        localStorage.setItem('isAuthorized', true);
+
+        return true;
+    }
+
+    useEffect(() => {
+        const { current } = ref;
+        current.beforeAuth = beforeAuth;
+        return () => {}
+    });
     return (
         <>
             <section class="fixed-top navigation nav-bg">
@@ -51,7 +67,7 @@ export default function Login() {
                             <h2 class="section-title">User Management</h2>
                             <p class="mb-100">Register if you are new or login</p>
                         </div>
-                        <passage-auth app-id="7MpeTVQurq4mKuuUYwW7OfGo" ></passage-auth>
+                        <passage-auth ref={ref} app-id="7MpeTVQurq4mKuuUYwW7OfGo" ></passage-auth>
 
                     </div>
                 </div>

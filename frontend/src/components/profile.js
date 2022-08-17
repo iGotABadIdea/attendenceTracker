@@ -1,12 +1,12 @@
 import React from 'react';
-import { useCurrentUser } from '../hook/useCurrentUser';
-import '@passageidentity/passage-elements/passage-profile';
 import { Link } from 'react-router-dom'
+
 export default function Profile() {
-    const { isLoading, isAuthorized, username } = useCurrentUser();
+    // let history = useHistory();
+    const username = localStorage.getItem('username');
+    const isAuthorized = localStorage.getItem('isAuthorized');
     return (
         <>
-
             <>
                 <section className="fixed-top navigation nav-bg">
                     <div className="container">
@@ -58,12 +58,11 @@ export default function Profile() {
 
 
                             </div>
-                            {isLoading ? <div>Loading...</div> : null}
 
                             {isAuthorized ?
                                 <>
-
-                                    <passage-profile app-id="7MpeTVQurq4mKuuUYwW7OfGo"></passage-profile>
+                                    {username}
+                                    {/* {history.goBack()} */}
                                 </> :
                                 <div className="text-center alert alert-danger ">
                                     <strong>You are not logged in</strong><br />
